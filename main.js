@@ -6,10 +6,12 @@ async function fetchPokemon() {
     const pokemonImage = data.sprites.front_default;
     const name = data.name;
     const types = data.types.map(typeObj => typeObj.type.name).join(', ');
+    const weight = data.weight;
 
     document.getElementById('pokemonImage').src = pokemonImage;
     document.getElementById('pokemonNameDisplay').textContent = name;
     document.getElementById('pokemonType').textContent = `Type(s): ${types}`;
+    document.getElementById('pokemonWeight').textContent = `Weight: ${weight}`;
 
     document.getElementById('pokemonData').style.display = 'block';
   }
