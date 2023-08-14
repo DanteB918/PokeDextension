@@ -28,3 +28,9 @@ async function fetchPokemon() {
   }
 
 document.getElementById('search-pokemon').addEventListener("click", fetchPokemon);
+
+
+//Dynamic date for copyright
+const d = new Date();
+var year = document.getElementById('year');
+year.innerHTML = d.getFullYear();
