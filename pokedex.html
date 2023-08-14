@@ -11,30 +11,13 @@
 <body>
   <h1>Pokémon Info</h1>
   <input type="text" id="pokemonName" placeholder="Enter Pokémon Name">
-  <button onclick="fetchPokemon()">Search</button>
+  <button id="search-pokemon">Search</button>
 
   <div id="pokemonData" style="display: none;">
 	<img id="pokemonImage" src="" alt="Pokémon Image">
 	<h2 id="pokemonNameDisplay"></h2>
 	<p id="pokemonType"></p>
   </div>
-
-  <script>
-	async function fetchPokemon() {
-	  const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
-	  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-	  const data = await response.json();
-
-	  const pokemonImage = data.sprites.front_default;
-	  const name = data.name;
-	  const types = data.types.map(typeObj => typeObj.type.name).join(', ');
-
-	  document.getElementById('pokemonImage').src = pokemonImage;
-	  document.getElementById('pokemonNameDisplay').textContent = name;
-	  document.getElementById('pokemonType').textContent = `Type(s): ${types}`;
-
-	  document.getElementById('pokemonData').style.display = 'block';
-	}
-  </script>
 </body>
+<script src="main.js"></script>
 </html>
