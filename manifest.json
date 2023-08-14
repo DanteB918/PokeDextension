@@ -12,6 +12,5 @@
     "action": {
         "default_popup": "pokedex.html",
         "default-icon":"pokeball-icon.png"
-    },
-    "permissions": ["activeTab"]
+    }
 }
