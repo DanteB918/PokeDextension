@@ -43,19 +43,32 @@ async function fetchPokemon() {
 
     fieldImage.src = pokemonImage;
     fieldName.textContent = name;
-    fieldType.textContent = `Type(s): ${types}`;
-    fieldHeight.textContent = `Height: ${height} m`;
-    fieldWeight.textContent = `Weight: ${weight} kg`;
-    fieldSpecies.textContent = `Species: ${species}`;
-    fieldBaseExperience.textContent = `Base Experience: ${baseExperience}`;
-    fieldGames.textContent = `Appears in Games: ${games}`;
-    fieldAbilities.textContent = `Abilities: ${abilities}`;
+    if (types){
+        fieldType.textContent = `Type(s): ${types}`;
+    }
+    if (height){
+        fieldHeight.textContent = `Height: ${height} m`;
+    }
+    if (weight){
+        fieldWeight.textContent = `Weight: ${weight} kg`;
+    }
+    if (species){
+        fieldSpecies.textContent = `Species: ${species}`;
+    }
+    if (baseExperience){
+        fieldBaseExperience.textContent = `Base Experience: ${baseExperience}`;
+    }
+    if (games){
+        fieldGames.textContent = `Appears in Games: ${games}`;
+    }
+    if (abilities){
+        fieldAbilities.textContent = `Abilities: ${abilities}`;
+    }
 
     document.getElementById('pokemonData').style.display = 'block';
-
     fieldImage.addEventListener("click", function() {
-        if (this.src === pokemonImage){
-            this.src = pokemonImageShiny;
+        if (this.src === pokemonImage && pokemonImageShiny != null){
+                this.src = pokemonImageShiny;
         }else{
             this.src = pokemonImage;
         };
