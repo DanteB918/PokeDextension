@@ -60,7 +60,29 @@ body {
   }
   #pokemonWeight {
     font-size: 18px;
-    color: #2776ae;
+    color: #3498db;
+  }
+  #pokemonAbilities {
+    font-size: 18px;
+    color: #ae9e27;
+  }
+  #pokemonHeight {
+    font-size: 18px;
+    color: #3498db;
+  }
+  #pokemonSpecies {
+    font-size: 18px;
+    color: #e67e22;
+  }
+
+  #pokemonBaseExperience {
+    font-size: 18px;
+    color: #9b59b6;
+  }
+
+  #pokemonGames {
+    font-size: 18px;
+    color: #c0392b;
   }
   footer{
     margin-top: 5%;
@@ -107,6 +129,19 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: start;
+  }
+  #error-container{
+    display: none;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+  }
+  #error-text{
+    font-size: 24px;
+    margin: 10px 0;
+    color: #e74c3c;
   }
 
   .dots {
