@@ -68,3 +68,62 @@ body {
   footer a{
     color: white;
   }
+
+  .lense {
+    width: 40px;
+    height: 40px;
+    background-color: #02EEFF;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  .lense:before, .lense:after {
+    content: "";
+    position: absolute;
+    background-color: black;
+  }
+  
+  .lense:before {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .lense:after {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .dots-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  }
+
+  .dots {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 10px;
+    margin: 10px 2px;
+  }
+  .green{
+    background-color: green;
+  }
+  .red{
+    background-color: red;
+  }
+  .yellow{
+    background-color: yellow;
+  }
