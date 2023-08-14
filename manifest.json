@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "author": "Dante Bradshaw",
+    "name": "PokeDex",
+    "description": "PokeDex Extension",
+    "version": "1.0",
+    "icons": {
+        "16": "pokeball-icon.png",
+        "48": "pokeball-icon.png",
+        "128": "pokeball-icon.png"
+    },
+    "action": {
+        "default_popup": "pokedex.html",
+        "default-icon":"pokeball-icon.png"
+    },
+    "permissions": ["activeTab"]
+    
+}
