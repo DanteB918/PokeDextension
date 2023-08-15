@@ -27,7 +27,7 @@ async function fetchPokemon() {
 
     //Retrieving data to insert into DOM
     const pokemonImage = data.sprites.front_default;
-    const pokemonImageShiny = data.sprites.front_shiny;
+
     const name = data.name;
     const types = data.types.map(typeObj => typeObj.type.name).join(', ');
     const height = data.height / 10; // Convert to meters
@@ -63,19 +63,27 @@ async function fetchPokemon() {
     if (abilities){
         fieldAbilities.textContent = `Abilities: ${abilities}`;
     }
-
     document.getElementById('pokemonData').style.display = 'block';
-    fieldImage.addEventListener("click", function() { //Switch between shiny and not shiny images
-        if (this.src === pokemonImage && pokemonImageShiny != null){
-                this.src = pokemonImageShiny;
-        }else{
-            this.src = pokemonImage;
-        };
-    });
   }
 
 document.getElementById('search-pokemon').addEventListener("click", fetchPokemon);
 
+const fieldImage = document.getElementById('pokemonImage');
+fieldImage.addEventListener("click", swapImg);
+async function swapImg() { //Switch between shiny and not shiny images
+    const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+    const data = await response.json();
+
+    const pokemonImage = data.sprites.front_default;
+    var pokemonImageShiny = data.sprites.front_shiny;
+
+    if (this.src === pokemonImage && pokemonImageShiny){
+            this.src = pokemonImageShiny;
+    }else{
+        this.src = pokemonImage;
+    };
+};
 
 //Dynamic date for copyright
 const d = new Date();
