@@ -89,3 +89,8 @@ async function swapImg() { //Switch between shiny and not shiny images
 const d = new Date();
 var year = document.getElementById('year');
 year.innerHTML = d.getFullYear();
+
+//Fill the pokemon list
+fetch('autofill.html')
+.then(response => response.text())
+.then(text => document.getElementById("pokemon-list").innerHTML = text);

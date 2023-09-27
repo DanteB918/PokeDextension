@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>PokéDex</title>
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-  <link href="main.css" rel="stylesheet">
-</head>
-<body>
-	<div class="dots-row">
-		<div class="lense"></div>
-		<div class="dots red"></div>
-		<div class="dots yellow"></div>
-		<div class="dots green"></div>
-	</div>
-	<h1>PokéDex</h1>
-	<input type="text" id="pokemonName" placeholder="Enter Pokémon Name">
-	<button id="search-pokemon">Search</button><br />
-	<em id="advisory-text"></em>
-	<div id="error-container">
-		<p id="error-text"></p>
-	</div>
-	<div id="pokemonData" style="display: none;">
-		<img id="pokemonImage" src="" alt="Pokémon Image">
-		<h2 id="pokemonNameDisplay"></h2>
-		<p id="pokemonType"></p>
-		<p id="pokemonHeight"></p>
-		<p id="pokemonWeight"></p>
-		<p id="pokemonAbilities"></p>
-		<p id="pokemonSpecies"></p>
-		<p id="pokemonBaseExperience"></p>
-		<p id="pokemonGames"></p>
-		<p id="pokemonLocations"></p>
-		<p id="pokemonRegion"></p>
-	</div>
-	<footer>
-		<em>Pokémon are registered trademarks of Nintendo and Game Freak.</em>
-		<p>Created by <a href="https://www.dantebradshaw.com" target="_blank">Dante Bradshaw</a> | &copy; <span id="year"></span></p>
-		<p>Powered by <a href="https://pokeapi.co/" target="_blank"><img src="pokeapi.png" width="50" alt="PokeAPI" /></a></p>
-	</footer>
-</body>
-<script src="main.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>PokéDex</title>
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="dots-row">
+            <div class="lense"></div>
+            <div class="dots red"></div>
+            <div class="dots yellow"></div>
+            <div class="dots green"></div>
+        </div>
+        <h1>PokéDex</h1>
+        <input type="text" list="pokemon-list" id="pokemonName" placeholder="Enter Pokémon Name">
+        <datalist id="pokemon-list">
+        </datalist>
+        <button id="search-pokemon">Search</button><br />
+        <em id="advisory-text"></em>
+        <div id="error-container">
+            <p id="error-text"></p>
+        </div>
+        <div id="pokemonData" style="display: none;">
+            <img id="pokemonImage" src="" alt="Pokémon Image">
+            <h2 id="pokemonNameDisplay"></h2>
+            <p id="pokemonType"></p>
+            <p id="pokemonHeight"></p>
+            <p id="pokemonWeight"></p>
+            <p id="pokemonAbilities"></p>
+            <p id="pokemonSpecies"></p>
+            <p id="pokemonBaseExperience"></p>
+            <p id="pokemonGames"></p>
+            <p id="pokemonLocations"></p>
+            <p id="pokemonRegion"></p>
+        </div>
+        <footer>
+            <em>Pokémon are registered trademarks of Nintendo and Game Freak.</em>
+            <p>Created by <a href="https://www.dantebradshaw.com" target="_blank">Dante Bradshaw</a> | &copy; <span id="year"></span></p>
+            <p>Powered by <a href="https://pokeapi.co/" target="_blank"><img src="pokeapi.png" width="50" alt="PokeAPI" /></a></p>
+        </footer>
+    </body>
+    <script src="main.js"></script>
 </html>
