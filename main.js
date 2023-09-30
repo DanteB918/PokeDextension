@@ -1,4 +1,6 @@
-async function fetchPokemon() {
+async function fetchPokemon(e) {
+    e.preventDefault();
+
     document.getElementById('error-container'). style.display = 'none';
     const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
 
@@ -106,7 +108,7 @@ async function fetchPokemon() {
     document.getElementById('pokemonData').style.display = 'block';
   }
 
-document.getElementById('search-pokemon').addEventListener("click", fetchPokemon);
+document.getElementById('search-form').addEventListener("submit", fetchPokemon);
 
 const fieldImage = document.getElementById('pokemonImage');
 fieldImage.addEventListener("click", swapImg);
