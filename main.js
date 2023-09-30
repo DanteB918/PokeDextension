@@ -51,19 +51,29 @@ async function fetchPokemon() {
         },
         options: {
             responsive: true,
-            legend: {display: false},
-            title: {
-                display: true,
-                text: "Base Stats"
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                title: {
+                    display: true,
+                    text: "Base Stats"
+                },
             },
+
             scales: {
-                yAxes: [{
+                x: {
+                    grid: {
+                        offset: true
+                    }
+                },
+                y: {
                         display: true,
                         ticks: {
                             beginAtZero: true,
                             stepSize: 10
                         }
-                    }]
+                    }
             },
         }
       });
