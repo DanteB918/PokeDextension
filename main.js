@@ -1,14 +1,13 @@
 async function fetchPokemon() {
     document.getElementById('error-container'). style.display = 'none';
     const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
-    
+
     //Retrieving all ID fields in the DOM
     const fieldImage = document.getElementById('pokemonImage');
     const fieldName = document.getElementById('pokemonNameDisplay');
     const fieldType = document.getElementById('pokemonType');
     const fieldHeight = document.getElementById('pokemonHeight');
     const fieldWeight = document.getElementById('pokemonWeight');
-    const fieldSpecies = document.getElementById('pokemonSpecies');
     const fieldBaseExperience = document.getElementById('pokemonBaseExperience');
     const fieldGames = document.getElementById('pokemonGames');
     const fieldAbilities = document.getElementById('pokemonAbilities');
@@ -27,16 +26,47 @@ async function fetchPokemon() {
 
     //Retrieving data to insert into DOM
     const pokemonImage = data.sprites.front_default;
-
     const name = data.name;
     const types = data.types.map(typeObj => typeObj.type.name).join(', ');
     const height = data.height / 10; // Convert to meters
     const weight = data.weight / 10; // Convert to kilograms
     const abilities = data.abilities.map(abilityObj => abilityObj.ability.name).join(', ');
-    const species = data.species.name;
     const baseExperience = data.base_experience;
     const games = data.game_indices.map(gameObj => gameObj.version.name).join(', ');
-
+    var statValues = [];
+    var statNames = [];
+    var randomColors = ['red', 'blue', 'orange', 'purple', 'green', 'yellow'];
+    data.stats.forEach(function(elem){
+        statNames.push(elem.stat.name);
+        statValues.push(elem.base_stat);
+    });
+    const myChart = new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: statNames,
+            datasets:[{
+                backgroundColor: randomColors,
+                data: statValues
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {display: false},
+            title: {
+                display: true,
+                text: "Base Stats"
+            },
+            scales: {
+                yAxes: [{
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 10
+                        }
+                    }]
+            },
+        }
+      });
 
     document.getElementById('advisory-text').textContent = `Click the image to see shiny version!`;
 
@@ -50,9 +80,6 @@ async function fetchPokemon() {
     }
     if (weight){
         fieldWeight.textContent = `Weight: ${weight} kg`;
-    }
-    if (species){
-        fieldSpecies.textContent = `Species: ${species}`;
     }
     if (baseExperience){
         fieldBaseExperience.textContent = `Base Experience: ${baseExperience}`;
