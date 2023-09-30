@@ -40,7 +40,10 @@ async function fetchPokemon() {
         statNames.push(elem.stat.name);
         statValues.push(elem.base_stat);
     });
-    const myChart = new Chart("myChart", {
+
+    document.getElementById('canvas').innerHTML = '<canvas id="myChart" style="width:100%;"></canvas>'
+
+    var myChart = new Chart("myChart", {
         type: "bar",
         data: {
             labels: statNames,
