@@ -2,7 +2,7 @@ async function fetchPokemon(e) {
     e.preventDefault();
 
     document.getElementById('error-container'). style.display = 'none';
-    const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
+    const pokemonName = cleanName(document.getElementById('pokemonName').value.toLowerCase());
 
     //Retrieving all ID fields in the DOM
     const fieldImage = document.getElementById('pokemonImage');
@@ -110,10 +110,27 @@ async function fetchPokemon(e) {
 
 document.getElementById('search-form').addEventListener("submit", fetchPokemon);
 
+function cleanName(name) {
+    //Replace spaces with dashes for API endpoint
+    if (name.indexOf(' ') >= 0) {
+        name = name.replace(' ', '-');
+    }
+
+    //Remove single quotes for API endpoint
+    if (name.indexOf("'") >= 1) {
+        name = name.replace("'", "");
+    }
+
+    // Replace special characters
+    return name.replace(/[àáâãäå]/g, 'a')
+        .replace(/[èéêë]/g, 'e');
+}
+
 const fieldImage = document.getElementById('pokemonImage');
 fieldImage.addEventListener("click", swapImg);
 async function swapImg() { //Switch between shiny and not shiny images
-    const pokemonName = document.getElementById('pokemonName').value.toLowerCase();
+    const pokemonName = cleanName(document.getElementById('pokemonName').value.toLowerCase());
+
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
     const data = await response.json();
 
