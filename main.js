@@ -1,8 +1,9 @@
 async function fetchPokemon(e) {
     e.preventDefault();
 
-    document.getElementById('error-container'). style.display = 'none';
-    const pokemonName = cleanName(document.getElementById('pokemonName').value.toLowerCase());
+    document.getElementById('error-container').style.display = 'none';
+    const ogName = document.getElementById('pokemonName').value.toLowerCase();
+    const pokemonName = cleanName(ogName)
 
     //Retrieving all ID fields in the DOM
     const fieldImage = document.getElementById('pokemonImage');
@@ -28,7 +29,7 @@ async function fetchPokemon(e) {
 
     //Retrieving data to insert into DOM
     const pokemonImage = data.sprites.front_default;
-    const name = data.name;
+    const name = ogName;
     const types = data.types.map(typeObj => typeObj.type.name).join(', ');
     const height = data.height / 10; // Convert to meters
     const weight = data.weight / 10; // Convert to kilograms
@@ -119,6 +120,14 @@ function cleanName(name) {
     //Remove single quotes for API endpoint
     if (name.indexOf("'") >= 1) {
         name = name.replace("'", "");
+    }
+
+    if (name.indexOf("♀") >= 1) {
+        name = name.replace("♀", "-f");
+    }
+
+    if (name.indexOf("♂") >= 1) {
+        name = name.replace("♂", "-m");
     }
 
     // Replace special characters
